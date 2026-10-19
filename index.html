@@ -5,18 +5,25 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Физитон — будь, как физик</title>
 
-  <!-- Шрифты: Inter (текст) + JetBrains Mono (формулы) -->
+  <!-- Тема до загрузки CSS (без мигания) -->
+  <script>
+    (function() {
+      var t = localStorage.getItem('fiziton-theme') || 'cosmos';
+      document.documentElement.setAttribute('data-theme', t);
+    })();
+  </script>
+
+  <!-- Шрифты -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
 
-  <!-- Стили: основная тема + переключатель тем -->
+  <!-- Стили -->
   <link rel="stylesheet" href="assets/style-space.css">
   <link rel="stylesheet" href="assets/theme.css">
 </head>
 <body>
 
-  <!-- Звёздный фон -->
   <div class="stars-bg"></div>
 
   <header>
@@ -24,18 +31,17 @@
     <p>будь, как физик</p>
   </header>
 
-  <!-- Две главные карточки: Формуляр и Аксиом -->
   <main class="hub">
 
     <a href="pages/calculator.html" class="hub-card">
-      <span class="icon">01</span>
+      <span class="icon">Формулы</span>
       <h2>Формуляр</h2>
       <p>Вводишь данные и кайфуешь. Есть все разделы физики.</p>
       <img src="assets/formulyar.png" alt="" class="char">
     </a>
 
     <a href="pages/explainer.html" class="hub-card">
-      <span class="icon">02</span>
+      <span class="icon">Теория</span>
       <h2>Аксиом</h2>
       <p>Конспект для чайников. Тут есть каждая тема.</p>
       <img src="assets/aksiom.png" alt="" class="char">
@@ -43,7 +49,6 @@
 
   </main>
 
-  <!-- Скрипты: материалы, переключатель тем -->
   <script src="assets/materials.js"></script>
   <script src="assets/theme.js"></script>
 </body>

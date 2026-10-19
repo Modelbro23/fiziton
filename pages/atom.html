@@ -9,6 +9,12 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../assets/style-space.css">
   <link rel="stylesheet" href="../assets/theme.css">
+  <script>
+    (function() {
+      var t = localStorage.getItem('fiziton-theme') || 'cosmos';
+      document.documentElement.setAttribute('data-theme', t);
+    })();
+  </script>
 </head>
 <body>
   <div class="stars-bg"></div>

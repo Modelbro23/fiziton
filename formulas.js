@@ -60,7 +60,7 @@ const formulas = [
     ],
     calc: (x) => x.m * x.a,
     resultLabel: 'F',
-    resuqltUnit: 'H'
+    resultUnit: 'H'
   },
 
   {
@@ -1077,21 +1077,6 @@ const formulas = [
     resultUnit: 'Н'
   },
 
-  {
-    id: 'weightless',
-    section: 'mehanika',
-    class: 9,
-    title: 'Условие невесомости',
-    formula: 'P = 0 при a = g',
-    inputs: [
-      { key: 'm', label: 'Масса m', unit: 'кг' },
-      { key: 'g', label: 'Ускорение g', unit: 'м/с²' }
-    ],
-    calc: (x) => x.m * (x.g - x.g),
-    resultLabel: 'P',
-    resultUnit: 'Н'
-  },
-
   // =====================> НАКЛОННАЯ ПЛОСКОСТЬ
   {
     id: 'inclined-force',
@@ -1341,21 +1326,6 @@ const formulas = [
   },
 
   // =====================> РАВНОВЕСИЕ
-  {
-    id: 'buoyant-condition',
-    section: 'mehanika',
-    class: 7,
-    title: 'Условие плавания тела',
-    formula: 'Fт = Fa при равновесии',
-    inputs: [
-      { key: 'm', label: 'Масса m', unit: 'кг' },
-      { key: 'rho', label: 'Плотность жидкости ρ', unit: 'кг/м³' },
-      { key: 'v', label: 'Объём погружённой части V', unit: 'м³' }
-    ],
-    calc: (x) => x.m * 9.8 - x.rho * 9.8 * x.v,
-    resultLabel: 'Разница сил',
-    resultUnit: 'Н'
-  },
 
   {
     id: 'body-acceleration',
@@ -2567,34 +2537,7 @@ const formulas = [
     resultLabel: 'A',
     resultUnit: 'Бк'
   },
-  {
-    id: 'bohr-frequency',
-    section: 'atom',
-    class: 11,
-    title: 'Частота излучения (формула Бора)',
-    formula: 'h·ν = E₂ − E₁',
-    inputs: [
-      { key: 'e2', label: 'Энергия E₂', unit: 'Дж' },
-      { key: 'e1', label: 'Энергия E₁', unit: 'Дж' }
-    ],
-    calc: (x) => (x.e2 - x.e1) / 6.63e-34,
-    resultLabel: 'ν',
-    resultUnit: 'Гц'
-  },
-  {
-    id: 'bohr-wavelength',
-    section: 'atom',
-    class: 11,
-    title: 'Длина волны излучения',
-    formula: 'λ = h·c / (E₂ − E₁)',
-    inputs: [
-      { key: 'e2', label: 'Энергия E₂', unit: 'Дж' },
-      { key: 'e1', label: 'Энергия E₁', unit: 'Дж' }
-    ],
-    calc: (x) => 6.63e-34 * 3e8 / (x.e2 - x.e1),
-    resultLabel: 'λ',
-    resultUnit: 'м'
-  },
+  
   {
     id: 'hydrogen-energy',
     section: 'atom',
@@ -2662,19 +2605,6 @@ const formulas = [
     calc: (x) => 6.63e-34 / x.p,
     resultLabel: 'λ',
     resultUnit: 'м'
-  },
-  {
-    id: 'photon-mass',
-    section: 'atom',
-    class: 11,
-    title: 'Масса фотона',
-    formula: 'm = h·ν / c²',
-    inputs: [
-      { key: 'nu', label: 'Частота ν', unit: 'Гц' }
-    ],
-    calc: (x) => 6.63e-34 * x.nu / 9e16,
-    resultLabel: 'm',
-    resultUnit: 'кг'
   },
   {
     id: 'nuclear-radius',
@@ -4056,19 +3986,6 @@ const formulas = [
     resultUnit: 'Ом'
   },
   {
-    id: 'ionization-energy-ev',
-    section: 'electro',
-    class: 11,
-    title: 'Энергия ионизации (эВ)',
-    formula: 'W = q·U',
-    inputs: [
-      { key: 'u', label: 'Напряжение U', unit: 'В' }
-    ],
-    calc: (x) => 1.6e-19 * x.u,
-    resultLabel: 'W',
-    resultUnit: 'Дж'
-  },
-  {
     id: 'current-density',
     section: 'electro',
     class: 11,
@@ -4209,33 +4126,6 @@ const formulas = [
     calc: (x) => 4 * Math.PI * x.r * x.r * 5.67e-8 * Math.pow(x.t, 4),
     resultLabel: 'L',
     resultUnit: 'Вт'
-  },
-  {
-    id: 'solar-mass-loss',
-    section: 'astro',
-    class: 11,
-    title: 'Потеря массы Солнца',
-    formula: 'Δm = E / c²',
-    inputs: [
-      { key: 'e', label: 'Энергия E', unit: 'Дж' }
-    ],
-    calc: (x) => x.e / 9e16,
-    resultLabel: 'Δm',
-    resultUnit: 'кг'
-  },
-  {
-    id: 'escape-velocity-from-sun',
-    section: 'astro',
-    class: 11,
-    title: 'Скорость ухода с орбиты',
-    formula: 'v = √(G·M / R)',
-    inputs: [
-      { key: 'm', label: 'Масса M', unit: 'кг' },
-      { key: 'r', label: 'Радиус R', unit: 'м' }
-    ],
-    calc: (x) => Math.sqrt(6.67e-11 * x.m / x.r),
-    resultLabel: 'v',
-    resultUnit: 'м/с'
   },
 
     // =====================> ОПТИКА (расширение)

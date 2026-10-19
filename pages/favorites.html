@@ -13,6 +13,12 @@
   <!-- Стили -->
   <link rel="stylesheet" href="../assets/style-space.css">
   <link rel="stylesheet" href="../assets/theme.css">
+  <script>
+    (function() {
+      var t = localStorage.getItem('fiziton-theme') || 'cosmos';
+      document.documentElement.setAttribute('data-theme', t);
+    })();
+  </script>
 </head>
 <body>
 

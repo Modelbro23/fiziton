@@ -3,35 +3,51 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Аксиом - Физитон</title>
+  <title>Аксиом — Физитон</title>
+
+  <script>
+    (function() {
+      var t = localStorage.getItem('fiziton-theme') || 'cosmos';
+      document.documentElement.setAttribute('data-theme', t);
+    })();
+  </script>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="../assets/style-space.css">
   <link rel="stylesheet" href="../assets/theme.css">
 </head>
 <body>
+
   <div class="stars-bg"></div>
-  <a href="../index.html" class="back">꩜ Физитон</a>
+  <a href="../index.html" class="back">꩜ физитон</a>
 
   <header>
-
     <h1>Аксиом</h1>
-    <p>конспекты для чайников</p>
-
+    <p>конспекты по темам</p>
   </header>
 
-  <main class="menu">
+  <main>
+    <div class="search-wrap">
+      <input
+        type="text"
+        id="theory-search"
+        class="search-input"
+        placeholder="Поиск по темам... (нажми /)"
+        autocomplete="off"
+      >
+      <span class="search-count" id="theory-count"></span>
+    </div>
 
-    <a href="#" class="card">
-
-      <span class="icon">Soon</span>
-      <h2>В разработке</h2>
-      <p>Здесь ничего не появиться. я ленивый</p>
-    </a>
-
+    <div class="topics-scroll" id="topics-container"></div>
   </main>
 
+  <script src="../theory.js"></script>
+  <script src="../script.js"></script>
+  <script>
+    renderTheoryList('topics-container');
+  </script>
 </body>
 </html>
-
