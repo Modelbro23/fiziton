@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Задачник — Физитон</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/style-space.css">
+  <link rel="stylesheet" href="../assets/theme.css">
+  <script>
+    (function() {
+      var t = localStorage.getItem('fiziton-theme') || 'dark';
+      document.documentElement.setAttribute('data-theme', t);
+    })();
+  </script>
+</head>
+<body>
+  <div class="stars-bg"></div>
+  <a href="../index.html" class="back">← физитон</a>
+
+  <header>
+    <h1>Задачник</h1>
+    <p>Выбери тему, чтобы решать задачи</p>
+  </header>
+
+  <main>
+    <!-- Блок с рандомайзером -->
+    <div class="randomizer-box">
+      <h2>Рандомайзер</h2>
+      <p>Выбери параметры и получи случайную задачу</p>
+
+      <div class="randomizer-controls">
+        <select id="rand-class">
+          <option value="all">Любой класс</option>
+          <option value="7">7 класс</option>
+          <option value="8">8 класс</option>
+          <option value="9">9 класс</option>
+          <option value="10">10 класс</option>
+          <option value="11">11 класс</option>
+        </select>
+        <select id="rand-section">
+          <option value="all">Любой раздел</option>
+        </select>
+        <button class="calc-btn" id="btn-random-task">Случайная задача</button>
+      </div>
+
+      <!-- Примечание -->
+      <p class="randomizer-note">
+        * Пока фильтр по разделам в разработке. Сейчас рандомайзер работает по всем темам выбранного класса.
+      </p>
+    </div>
+
+    <div class="search-wrap">
+      <input type="text" id="tasks-search" class="search-input" placeholder="Поиск по темам... (нажми /)" autocomplete="off">
+      <span class="search-count" id="tasks-count"></span>
+    </div>
+
+    <div class="menu" id="tasks-menu"></div>
+  </main>
+
+  <script src="../theory.js"></script>
+  <script src="../script.js"></script>
+  <script src="../assets/theme.js"></script>
+  <script>
+    renderTasksList('tasks-menu');
+  </script>
+</body>
+</html>

@@ -1,0 +1,164 @@
+/* ============================================
+   ФИЗИТОН — 4 ТЕМЫ (МИНИМАЛИЗМ)
+   ============================================ */
+
+/* ============ ТЁМНАЯ (по умолчанию) ============ */
+:root, [data-theme="dark"] {
+  --bg: #121212;
+  --bg-deep: #0a0a0a;
+  --surface: #1e1e1e;
+  --surface-hover: #2a2a2a;
+  --border: #333333;
+  --border-bright: #555555;
+  --text: #e0e0e0;
+  --muted: #888888;
+  --accent: #4f9cf9;      /* синий акцент */
+  --accent-bright: #72b0ff;
+  --accent-2: #a78bfa;    /* фиолетовый для второго акцента */
+  --btn-text: #0a0a0a;
+}
+
+/* ============ СВЕТЛАЯ ============ */
+[data-theme="light"] {
+  --bg: #f5f5f5;
+  --bg-deep: #eaeaea;
+  --surface: #ffffff;
+  --surface-hover: #f0f0f0;
+  --border: #d0d0d0;
+  --border-bright: #b0b0b0;
+  --text: #111111;
+  --muted: #666666;
+  --accent: #2563eb;
+  --accent-bright: #3b82f6;
+  --accent-2: #7c3aed;
+  --btn-text: #ffffff;
+}
+
+/* ============ КИБЕРПАНК ============ */
+[data-theme="cyberpunk"] {
+  --bg: #0b0f1a;
+  --bg-deep: #05080f;
+  --surface: #131a2a;
+  --surface-hover: #1c2438;
+  --border: #2a3550;
+  --border-bright: #3f4d70;
+  --text: #e0e8ff;
+  --muted: #7a8ba8;
+  --accent: #00f0ff;      /* неон-циан */
+  --accent-bright: #66f9ff;
+  --accent-2: #ff00aa;    /* неон-розовый */
+  --btn-text: #05080f;
+}
+
+/* ============ СТИМПАНК ============ */
+[data-theme="steampunk"] {
+  --bg: #1a1410;
+  --bg-deep: #0f0c09;
+  --surface: #261e18;
+  --surface-hover: #332a22;
+  --border: #4a3b2e;
+  --border-bright: #6b5540;
+  --text: #f0e0c8;
+  --muted: #a08060;
+  --accent: #d4a24e;      /* латунь */
+  --accent-bright: #e8b96a;
+  --accent-2: #c06040;    /* медь */
+  --btn-text: #0f0c09;
+}
+
+/* ============================================
+   ПЕРЕКЛЮЧАТЕЛЬ ТЕМ
+   ============================================ */
+
+.theme-switcher {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 8px;
+}
+
+.theme-toggle-btn {
+  width: 44px;
+  height: 44px;
+  border-radius: 8px;           /* вместо круга — квадрат со скруглением */
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text);
+  font-size: 20px;
+  cursor: pointer;
+  transition: border-color 0.15s, background 0.15s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.theme-toggle-btn:hover {
+  border-color: var(--accent);
+  background: var(--surface-hover);
+}
+
+.theme-panel {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 160px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3); /* легкая тень, без свечения */
+  animation: panelIn 0.12s ease;
+}
+
+@keyframes panelIn {
+  from { opacity: 0; transform: translateY(-4px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.theme-panel.hidden { display: none; }
+
+.theme-option {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  background: transparent;
+  border: none;
+  border-radius: 6px;
+  color: var(--text);
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.15s;
+  text-align: left;
+  width: 100%;
+}
+
+.theme-option:hover { background: var(--surface-hover); }
+.theme-option.active { background: var(--surface-hover); color: var(--accent); }
+
+.theme-option .dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  border: 1px solid var(--border-bright);
+}
+
+.theme-option[data-theme-name="dark"] .dot       { background: #000000; }
+.theme-option[data-theme-name="light"] .dot      { background: #fdfeff; }
+.theme-option[data-theme-name="cyberpunk"] .dot  { background: #10dbffd9; }
+.theme-option[data-theme-name="steampunk"] .dot  { background: #835404; }
+
+/* Мобилка */
+@media (max-width: 768px) {
+  .theme-switcher { top: 12px; right: 12px; }
+  .theme-toggle-btn { width: 40px; height: 40px; font-size: 18px; }
+  .theme-panel { min-width: 140px; padding: 4px; }
+  .theme-option { padding: 7px 10px; font-size: 12px; }
+}
